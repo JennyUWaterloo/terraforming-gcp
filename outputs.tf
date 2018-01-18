@@ -54,10 +54,6 @@ output "network_name" {
   value = "${google_compute_network.pcf-network.name}"
 }
 
-output "sql_db_ip" {
-  value = "${module.external_database.ip}"
-}
-
 output "management_subnet_gateway" {
   value = "${google_compute_subnetwork.management-subnet.gateway_address}"
 }
@@ -68,10 +64,6 @@ output "management_subnet_cidrs" {
 
 output "management_subnet_name" {
   value = "${google_compute_subnetwork.management-subnet.name}"
-}
-
-output "opsman_sql_db_name" {
-  value = "${module.external_database.opsman_sql_db_name}"
 }
 
 output "pas_subnet_gateway" {
@@ -112,24 +104,6 @@ output "ssl_private_key" {
   value     = "${length(var.ssl_ca_cert) > 0 ? element(concat(tls_private_key.ssl_private_key.*.private_key_pem, list("")), 0) : var.ssl_private_key}"
 }
 
-output "isoseg_domain" {
-  value = "${module.isolation_segment.domain}"
-}
-
-output "isoseg_lb_backend_name" {
-  value = "${module.isolation_segment.load_balancer_name}"
-}
-
-output "iso_seg_ssl_cert" {
-  sensitive = true
-  value     = "${module.isolation_segment.ssl_cert}"
-}
-
-output "iso_seg_ssl_private_key" {
-  sensitive = true
-  value     = "${module.isolation_segment.ssl_private_key}"
-}
-
 output "ws_router_pool" {
   value = "${google_compute_target_pool.cf-ws.name}"
 }
@@ -160,24 +134,6 @@ output "resources_bucket" {
 
 output "director_blobstore_bucket" {
   value = "${element(concat(google_storage_bucket.director.*.name, list("")), 0)}"
-}
-
-output "pas_sql_username" {
-  value = "${module.external_database.pas_sql_username}"
-}
-
-output "pas_sql_password" {
-  sensitive = true
-  value     = "${module.external_database.pas_sql_password}"
-}
-
-output "opsman_sql_username" {
-  value = "${module.external_database.opsman_sql_username}"
-}
-
-output "opsman_sql_password" {
-  sensitive = true
-  value     = "${module.external_database.opsman_sql_password}"
 }
 
 output "ops_manager_ssh_private_key" {

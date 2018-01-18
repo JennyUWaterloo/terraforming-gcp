@@ -33,6 +33,12 @@ variable "services_cidr" {
   default     = "10.0.8.0/24"
 }
 
+variable "pas_no_ipsec_cidr" {
+  type        = "string"
+  description = "cidr for pas no-ipsec subnet"
+  default     = "10.0.12.0/24"
+}
+
 variable "zones" {
   type = "list"
 }
