@@ -78,6 +78,18 @@ output "pas_subnet_name" {
   value = "${google_compute_subnetwork.pas-subnet.name}"
 }
 
+output "pas_no_ipsec_subnet_gateway" {
+  value = "${google_compute_subnetwork.pas-no-ipsec-subnet.gateway_address}"
+}
+
+output "pas_no_ipsec_subnet_cidrs" {
+  value = ["${google_compute_subnetwork.pas-no-ipsec-subnet.ip_cidr_range}"]
+}
+
+output "pas_no_ipsec_subnet_name" {
+  value = "${google_compute_subnetwork.pas-no-ipsec-subnet.name}"
+}
+
 output "services_subnet_gateway" {
   value = "${google_compute_subnetwork.services-subnet.gateway_address}"
 }
