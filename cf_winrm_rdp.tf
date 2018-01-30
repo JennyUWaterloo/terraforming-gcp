@@ -1,6 +1,6 @@
 // Allow winrm and rdp access for VM in PCF deployment
-resource "google_compute_firewall" "cf-winrm-verifier" {
-  name    = "${var.env_name}-cf-winrm-verifier"
+resource "google_compute_firewall" "cf-winrm-rdp" {
+  name    = "${var.env_name}-cf-winrm-rdp"
   network = "${google_compute_network.pcf-network.name}"
 
   allow {
