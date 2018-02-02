@@ -8,8 +8,6 @@ resource "google_compute_firewall" "cf-esp" {
   }
 
   source_ranges = [
-    "52.204.73.71/32",
-    "66.207.217.100/32",
-    "209.234.137.222/32"
+    "0.0.0.0/0"
   ]
 }
